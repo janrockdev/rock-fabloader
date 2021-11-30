@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
+
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
+
 import com.janrock.kdb.connector;
 
 public class App {
@@ -35,10 +39,12 @@ public class App {
 
         Logger logger = Logger.getLogger(App.class.getName());
 
+        Config defaultConfig = ConfigFactory.parseResources("application.conf");
+
         KxTableModel model = new KxTableModel();
         connector c = null;
         try {
-            c = new connector("192.168.0.200", 5000); //System.getProperty("user.name")+":mypassword");
+            c = new connector(defaultConfig.getString("conf.kdb.ip"), defaultConfig.getInt("conf.kdb.port")); //System.getProperty("user.name")+":mypassword");
             String query="(select from trades)";
             model.setFlip((connector.Flip) c.k(query));
             for (int i=0; i <= model.getRowCount()-1; i++){
