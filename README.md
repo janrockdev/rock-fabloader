@@ -14,7 +14,7 @@
 ![travis](https://app.travis-ci.com/janrockdev/rock-fabloader.svg?branch=master)
 
 
-Version: 0.1.0.0
+Version: 0.1.1.0
 
 TODO:
 - template for project 
