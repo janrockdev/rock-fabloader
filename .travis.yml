@@ -3,7 +3,7 @@ arch: amd64
 language: java
 
 jdk:
-  - zulu-11-amd64
+  - oraclejdk11
 
 cache:
   directories:
