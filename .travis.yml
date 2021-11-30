@@ -1,0 +1,18 @@
+arch: amd64
+
+language: java
+
+jdk:
+  - zulu-11-amd64
+
+cache:
+  directories:
+    - $HOME/.m2
+
+script:
+  - java --version
+  - ./mvn clean install
+  - ./mvn test
+
+
+
